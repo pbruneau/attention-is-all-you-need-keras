@@ -44,8 +44,8 @@ def train(epochs=100):
     tbCallback = TensorBoard(log_dir='./logs', histogram_freq=0, batch_size=batch_size, write_graph=True, write_grads=False, write_images=False)
     history = training_model.fit([source_train, target_train], batch_size=batch_size, epochs=epochs, verbose=1, callbacks=[])
 
-    training_model.save(f"./models/aiayn.train.{epochs}.h5")
-    inference_model.save(f"./models/aiayn.inference.{epochs}.h5")
+    training_model.save("./models/aiayn.train.{}.h5".format(epochs))
+    inference_model.save("./models/aiayn.inference.{}.h5".format(epochs))
 
     for key in history.history.keys():
         f = plt.figure()
