@@ -3,11 +3,11 @@ from utility.utility import load_training_data, load_validation_data
 from utility.language_encoder import LanguageEncoder
 import numpy as np
 import keras.backend as K
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import pathlib
 from matplotlib import pyplot as plt
-from keras.optimizers import Adam
-from keras.callbacks import TensorBoard
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import TensorBoard
 import pickle
 
 MAXIMUM_TEXT_LENGTH = 70

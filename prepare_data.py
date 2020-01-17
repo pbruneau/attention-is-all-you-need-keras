@@ -26,7 +26,7 @@ def cmd(input_file, output_data_folder, shuffle, vocabulary_size, train_test_spl
     lines = []
     source = []
     target = []
-    print(f"opening '{input_file}'")
+    print("opening '{}'".format(input_file))
     with open(input_file, 'r', encoding='utf-8') as f:
         lines = f.read().split('\n')
 

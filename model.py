@@ -1,5 +1,5 @@
-from keras.models import Model
-from keras.layers import Input, Dense, Embedding, Lambda, TimeDistributed, Add, Conv1D, Layer
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, Dense, Embedding, Lambda, TimeDistributed, Add, Conv1D, Layer
 from kulc.layer_normalization import LayerNormalization
 from kulc.attention import MultiHeadAttention
 import numpy as np
@@ -156,7 +156,9 @@ def build_transformer(source_vocabulary_size, target_vocabulary_size, max_length
     train_model.add_loss([loss])
     train_model.compile(optimizer, None)
     train_model.metrics_names.append('accuracy')
-    train_model.metrics_tensors.append(accuracy)
+    # when using tf.keras
+    #train_model.metrics_tensors.append(accuracy)
+    train_model.metrics.append(accuracy)
 
     inference_model = Model([source_input, target_input], fin_output_out)
 

@@ -2,7 +2,7 @@ from model import create_model
 from utility.utility import load_training_data, load_validation_data
 from utility.language_encoder import LanguageEncoder
 import numpy as np
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import pathlib
 import pickle
 import sys
@@ -56,9 +56,9 @@ model_id = int(model_id)
 
 _, inference_model = create_model(source_le._vocabulary_size, target_le._vocabulary_size, MAXIMUM_TEXT_LENGTH, n=2, d_model=256, h=4)
 try:
-    inference_model.load_weights(f"./models/aiayn.inference.{model_id}.h5")
+    inference_model.load_weights("./models/aiayn.inference.{}.h5".format(model_id))
 except:
-    print("Could not load model from: " + f"./models/aiayn.inference.{model_id}.h5")
+    print("Could not load model from: " + "./models/aiayn.inference.{}.h5".format(model_id))
     sys.exit()
 
 while True:
